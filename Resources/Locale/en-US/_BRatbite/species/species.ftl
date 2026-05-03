@@ -1,1 +1,1 @@
-species-name-permaascended = Ascended Perma
+species-name-permaascended = Ascendant
