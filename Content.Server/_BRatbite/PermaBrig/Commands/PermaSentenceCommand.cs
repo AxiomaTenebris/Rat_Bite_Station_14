@@ -44,7 +44,7 @@ namespace Content.Server._BRatbite.PermaBrig.Commands
                     }
 
                     balance = Loc.GetString("perma-your-current-sentence",
-                        ("sentence", _permaBrigManager.GetTimeLabel(_tracking.GetFuturePermaTime(commonSession))));
+                        ("sentence", _permaBrigManager.GetBrigTimeLabel(commonSession.UserId)));
 
                     _chatManager.ChatMessageToOne(ChatChannel.Local,
                         balance,
@@ -74,7 +74,7 @@ namespace Content.Server._BRatbite.PermaBrig.Commands
 
                         balance = Loc.GetString("perma-other-current-sentence",
                             ("player", targetPlayerm.UserId),
-                            ("sentence", _permaBrigManager.GetTimeLabel(_tracking.GetFuturePermaTime(commonSession))));
+                            ("sentence", _permaBrigManager.GetBrigTimeLabel(targetPlayerm)));
 
                         _chatManager.ChatMessageToOne(ChatChannel.Local,
                             balance,
