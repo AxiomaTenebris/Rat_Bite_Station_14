@@ -203,6 +203,11 @@ public sealed class PlayTimeTrackingManager : ISharedPlaytimeManager, IPostInjec
         {
             FlushSingleTracker(data, time);
         }
+
+        foreach (var session in _playTimeData.Keys)
+        {
+            FlushPermaTime(session);
+        }
     }
 
 
