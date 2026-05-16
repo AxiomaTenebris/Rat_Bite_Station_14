@@ -131,8 +131,7 @@
     - AnomalyHost
   - type: Sprinter
     staminaDrainRate: 12 # Ratbite
-  - type: NightVision
-    color: "#ABCDEF"
+  - type: ThermalVision
     activateSound: null
     deactivateSound: null
 
