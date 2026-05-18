@@ -37,6 +37,8 @@ public sealed partial class ThievingSystem : EntitySystem
         {
             args.Additive -= component.StripTimeReduction;
         }
+
+        args.Multiplier *= component.TimeMultiplier;
     }
 
     private void OnCompInit(Entity<ThievingComponent> entity, ref ComponentInit args)

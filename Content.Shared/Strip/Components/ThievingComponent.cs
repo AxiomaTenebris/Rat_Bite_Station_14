@@ -32,6 +32,18 @@ public sealed partial class ThievingComponent : Component
     public bool Stealthy;
 
     /// <summary>
+    /// Multiplies the final strip time.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float TimeMultiplier = 1f;
+
+    /// <summary>
+    /// Allows seeing strip slots that are normally hidden.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool IdentifyHidden;
+
+    /// <summary>
     /// Variable pointing at the Alert modal
     /// </summary>
     [DataField]
@@ -49,4 +61,3 @@ public sealed partial class ThievingComponent : Component
 /// Event raised to toggle the thieving component.
 /// </summary>
 public sealed partial class ToggleThievingEvent : BaseAlertEvent;
-
