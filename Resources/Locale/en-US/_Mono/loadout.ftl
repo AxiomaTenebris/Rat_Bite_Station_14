@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Monolith Station contributors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 loadout-group-weapon = firearm
 loadout-group-weapon-civilian = self-defense weapon
 loadout-group-pistol = sidearm

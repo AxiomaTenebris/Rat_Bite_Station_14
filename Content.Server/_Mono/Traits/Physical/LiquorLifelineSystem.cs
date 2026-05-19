@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Monolith Station contributors
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Mono.Traits.Physical;
 using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Body.Organ;

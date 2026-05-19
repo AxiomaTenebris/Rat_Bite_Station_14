@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Monolith Station contributors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 trait-bogan-accent-name = Bogan accent
 trait-bogan-accent-desc = Oi! You speaking like a Yowie!
 
