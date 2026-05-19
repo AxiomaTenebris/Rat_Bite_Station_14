@@ -102,3 +102,12 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+
+- type: entity
+  id: LockerMindshielded
+  parent: LockerBaseSecure
+  abstract: true
+  components:
+    - type: Destructible
+      thresholds: []
+  
