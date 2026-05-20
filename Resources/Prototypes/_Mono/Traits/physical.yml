@@ -73,7 +73,7 @@
   id: WillToLive
   name: trait-will-to-live-name
   description: trait-will-to-live-desc
-  category: Physical
+  category: Mental
   cost: 1
   mutuallyExclusiveTraits:
   - WillToDie
@@ -90,7 +90,7 @@
   id: WillToDie
   name: trait-will-to-die-name
   description: trait-will-to-die-desc
-  category: Physical
+  category: Mental
   cost: -1
   mutuallyExclusiveTraits:
   - WillToLive
@@ -225,7 +225,7 @@
   id: SelfAware
   name: trait-self-aware-name
   description: trait-self-aware-desc
-  category: Physical
+  category: Mental
   cost: 2
   components:
   - type: SelfAware
@@ -251,7 +251,7 @@
   id: Redshirt
   name: trait-redshirt-name
   description: trait-redshirt-desc
-  category: Physical
+  category: Mental
   cost: -8
   mutuallyExclusiveTraits:
   - WillToLive

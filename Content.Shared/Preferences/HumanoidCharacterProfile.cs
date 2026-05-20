@@ -522,7 +522,7 @@ namespace Content.Shared.Preferences
                 };
             }
 
-            var count = GetTraitPointTotalForCategory(list, traitCategory.ID, protoManager);
+            var count = GetTraitPointTotalForCategory(list, GetTraitPointPoolCategory(traitCategory.ID), protoManager);
 
             if (count > traitCategory.MaxTraitPoints && traitProto.Cost != 0)
             {
@@ -775,10 +775,6 @@ namespace Content.Shared.Preferences
             var result = new List<ProtoId<TraitPrototype>>();
             var traitList = traits.ToList();
 
-            var disabilityCredit = GetTraitPointTotalForCategory(traitList, "Disabilities", protoManager);
-            if (disabilityCredit != 0)
-                groups["Physical"] = disabilityCredit;
-
             foreach (var trait in traitList)
             {
                 if (!protoManager.TryIndex(trait, out var traitProto))
@@ -801,14 +797,15 @@ namespace Content.Shared.Preferences
                     continue;
                 }
 
-                var existing = groups.GetOrNew(category.ID);
+                var poolCategory = GetTraitPointPoolCategory(category.ID);
+                var existing = groups.GetOrNew(poolCategory);
                 existing += traitProto.Cost;
 
                 // Too expensive.
                 if (existing > category.MaxTraitPoints)
                     continue;
 
-                groups[category.ID] = existing;
+                groups[poolCategory] = existing;
                 result.Add(trait);
             }
 
@@ -827,12 +824,33 @@ namespace Content.Shared.Preferences
                 if (!protoManager.TryIndex<TraitPrototype>(traitId, out var trait))
                     continue;
 
-                if (trait.Category == categoryId ||
-                    categoryId == "Physical" && trait.Category == "Disabilities")
+                if (IsSharedTraitPointPool(categoryId))
+                {
+                    if (trait.Category == "Physical" ||
+                        trait.Category == "Mental" ||
+                        trait.Category == "Disabilities")
+                        count += trait.Cost;
+
+                    continue;
+                }
+
+                if (trait.Category == categoryId)
                     count += trait.Cost;
             }
 
             return count;
+        }
+
+        private static ProtoId<TraitCategoryPrototype> GetTraitPointPoolCategory(ProtoId<TraitCategoryPrototype> categoryId)
+        {
+            return IsSharedTraitPointPool(categoryId) || categoryId == "Disabilities"
+                ? "Physical"
+                : categoryId;
+        }
+
+        private static bool IsSharedTraitPointPool(ProtoId<TraitCategoryPrototype> categoryId)
+        {
+            return categoryId == "Physical" || categoryId == "Mental";
         }
 
         public ICharacterProfile Validated(ICommonSession session, IDependencyCollection collection)

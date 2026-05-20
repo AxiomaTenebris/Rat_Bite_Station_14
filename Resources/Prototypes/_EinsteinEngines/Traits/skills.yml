@@ -38,7 +38,7 @@
   id: LightStep
   name: trait-name-LightStep
   description: trait-description-LightStep
-  category: Auditory
+  category: Physical
   cost: 2
   speciesBlacklist:
   - Felinid
@@ -52,7 +52,7 @@
   id: Singer
   name: trait-name-Singer
   description: trait-description-Singer
-  category: Auditory
+  category: Physical
   cost: 1
   speciesBlacklist:
   - Harpy
@@ -69,7 +69,7 @@
   id: LyreBird
   name: trait-name-LyreBird
   description: trait-description-LyreBird
-  category: Auditory
+  category: Physical
   cost: 3
   includedSpecies:
   - Harpy

@@ -24,11 +24,16 @@
   - HarpySinger
   - Instrument
   - LightweightDrunk
+  - LoyaltyTraining
+  - Marathoner
   - Muted
   - Narcolepsy
+  - NeurogenesisImperfecta
+  - NeurogenesisImperfectaBrain
   - Pacified
   - PainNumbness
   - Paracusia
+  - PctTraining
   - PermanentBlindness
   - Snoring
   - SlippableModifier
@@ -36,6 +41,7 @@
   - SurgerySpeedModifier
   - SwappableInstrument
   - Unrevivable
+  - Juggernaut
   # job specific
   - BibleUser
   - CommandStaff

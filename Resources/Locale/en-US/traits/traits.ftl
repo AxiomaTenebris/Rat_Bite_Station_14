@@ -96,8 +96,8 @@ trait-spanish-desc = Hola señor, donde esta la biblioteca.
 trait-dementia-name = Dementia
 trait-dementia-desc = I-... uh, what was this one about again? Oh thats right! You forget a lot sometimes
 
-trait-painnumbness-name = Numb
-trait-painnumbness-desc = You lack any sense of feeling pain, being unaware of how hurt you may be.
+trait-painnumbness-name = High Pain Tolerance
+trait-painnumbness-desc = You cannot assess your own health status. Your health alert is hidden, and pain feedback is unreliable.
 
 trait-newyork-name = New York accent
 trait-newyork-desc = You speak with a thick New York accent. I'm fuckin' walkin' 'ere!

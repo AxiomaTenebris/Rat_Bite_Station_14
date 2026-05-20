@@ -873,7 +873,7 @@ namespace Content.Client.Lobby.UI
                             {
                                 var currentPoints = GetTraitPointTotalForCategory(
                                     Profile?.TraitPreferences ?? new HashSet<ProtoId<TraitPrototype>>(),
-                                    category.ID);
+                                    GetTraitPointPoolCategory(category.ID));
 
                                 if (currentPoints + trait.Cost > category.MaxTraitPoints)
                                 {
@@ -908,7 +908,7 @@ namespace Content.Client.Lobby.UI
 
                             var currentPoints = GetTraitPointTotalForCategory(
                                 Profile?.TraitPreferences ?? new HashSet<ProtoId<TraitPrototype>>(),
-                                refreshCategory.ID);
+                                GetTraitPointPoolCategory(refreshCategory.ID));
 
                             if (refreshButton.TraitsContainer.ChildCount >= 2)
                             {
@@ -939,7 +939,7 @@ namespace Content.Client.Lobby.UI
                 {
                     selectionCount = GetTraitPointTotalForCategory(
                         Profile?.TraitPreferences ?? new HashSet<ProtoId<TraitPrototype>>(),
-                        category.ID);
+                        GetTraitPointPoolCategory(category.ID));
 
                     var maxPoints = category.MaxTraitPoints.Value;
                     var pointsLeft = Math.Max(0, maxPoints - selectionCount);
@@ -1018,12 +1018,33 @@ namespace Content.Client.Lobby.UI
                 if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var trait))
                     continue;
 
-                if (trait.Category == categoryId ||
-                    categoryId == "Physical" && trait.Category == "Disabilities")
+                if (IsSharedTraitPointPool(categoryId))
+                {
+                    if (trait.Category == "Physical" ||
+                        trait.Category == "Mental" ||
+                        trait.Category == "Disabilities")
+                        count += trait.Cost;
+
+                    continue;
+                }
+
+                if (trait.Category == categoryId)
                     count += trait.Cost;
             }
 
             return count;
+        }
+
+        private static ProtoId<TraitCategoryPrototype> GetTraitPointPoolCategory(ProtoId<TraitCategoryPrototype> categoryId)
+        {
+            return IsSharedTraitPointPool(categoryId) || categoryId == "Disabilities"
+                ? "Physical"
+                : categoryId;
+        }
+
+        private static bool IsSharedTraitPointPool(ProtoId<TraitCategoryPrototype> categoryId)
+        {
+            return categoryId == "Physical" || categoryId == "Mental";
         }
 
         private void UpdateTraitIncompatibilityVisibility(Dictionary<ProtoId<TraitPrototype>, TraitPreferenceSelector> allSelectors)

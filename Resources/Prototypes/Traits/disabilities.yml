@@ -35,7 +35,7 @@
   name: trait-blindness-name
   description: trait-blindness-desc
   traitGear: WhiteCane
-  category: Disabilities
+  category: Physical
   cost: -3
   whitelist:
     components:
@@ -48,7 +48,7 @@
   name: trait-poor-vision-name
   description: trait-poor-vision-desc
   traitGear: ClothingEyesPrescriptionGlasses # Goobstation
-  category: Disabilities
+  category: Physical
   cost: -1
   whitelist:
     components:
@@ -61,7 +61,7 @@
   id: Narcolepsy
   name: trait-narcolepsy-name
   description: trait-narcolepsy-desc
-  category: Disabilities
+  category: Mental
   cost: -1
   components:
     - type: Narcolepsy
@@ -72,7 +72,7 @@
   id: Unrevivable
   name: trait-unrevivable-name
   description: trait-unrevivable-desc
-  category: Disabilities
+  category: Physical
   cost: -1
   components:
     - type: Unrevivable
@@ -82,8 +82,8 @@
   id: Monochromacy
   name: trait-monochromacy-name
   description: trait-monochromacy-desc
-  category: Disabilities
-  cost: 0
+  category: Physical
+  cost: -1
   components:
   - type: BlackAndWhiteOverlay
 
@@ -91,7 +91,7 @@
   id: Muted
   name: trait-muted-name
   description: trait-muted-desc
-  category: Disabilities
+  category: Mental
   cost: -1
   blacklist:
     components:
@@ -103,8 +103,8 @@
   id: Paracusia
   name: trait-paracusia-name
   description: trait-paracusia-desc
-  category: Disabilities
-  cost: 0
+  category: Mental
+  cost: -1
   components:
     - type: Paracusia
       minTimeBetweenIncidents: 0.1
@@ -117,7 +117,7 @@
   id: PainNumbness
   name: trait-painnumbness-name
   description: trait-painnumbness-desc
-  category: Disabilities
+  category: Physical
   cost: -1
   components:
   - type: PainNumbness
