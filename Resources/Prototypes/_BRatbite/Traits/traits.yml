@@ -20,6 +20,7 @@
   blacklist:
     components:
     - MartialArtsKnowledge
+    - KravMaga
     - BorgChassis
   components:
   - type: PctTraining

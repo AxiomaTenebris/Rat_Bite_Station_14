@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Monolith Station contributors
+// SPDX-FileCopyrightText: 2026 Sprinkle <40203084+lnn0q@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -542,7 +543,7 @@ namespace Content.Shared.Preferences
 
             return new(this)
             {
-                _traitPreferences = list,
+                _traitPreferences = GetValidTraits(list, protoManager).ToHashSet(),
             };
         }
 
@@ -773,7 +774,13 @@ namespace Content.Shared.Preferences
             // Track points count for each group.
             var groups = new Dictionary<string, int>();
             var result = new List<ProtoId<TraitPrototype>>();
-            var traitList = traits.ToList();
+            var traitList = traits
+                .Select((trait, index) => (trait, index))
+                .Where(entry => protoManager.HasIndex<TraitPrototype>(entry.trait))
+                .OrderBy(entry => protoManager.Index<TraitPrototype>(entry.trait).Cost)
+                .ThenBy(entry => entry.index)
+                .Select(entry => entry.trait)
+                .ToList();
 
             foreach (var trait in traitList)
             {
