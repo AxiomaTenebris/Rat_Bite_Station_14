@@ -8,7 +8,7 @@ namespace Content.Shared._BRatbite.Traits;
 public sealed partial class JuggernautComponent : Component
 {
     [DataField]
-    public int CriticalIncrease = 50;
+    public int CriticalIncrease = 25;
 
     [DataField]
     public int DeadIncrease = 50;
