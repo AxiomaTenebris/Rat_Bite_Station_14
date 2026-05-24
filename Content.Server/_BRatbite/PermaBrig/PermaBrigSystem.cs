@@ -17,6 +17,7 @@ using Content.Shared.Players;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Security.Components;
+using Content.Server.Traits;
 using Robust.Server.Audio;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -50,6 +51,7 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
     [Dependency] private readonly EntityManager _ent = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly TraitSystem _trait = default!;
 
     public HashSet<ICommonSession> PermaIndividuals = new();
     public Dictionary<ICommonSession, (TimeSpan, TimeSpan)> PermaIndividualJoinedTime = new();
@@ -228,6 +230,7 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
             character);
 
         _stationRecords.OnPlayerSpawn(aev);
+	_trait.OnPlayerSpawnComplete(aev);
     }
 
     // private void OnRoundEnd(RoundEndMessageEvent ev) Auto decrease of perma sentence not yet implemented
