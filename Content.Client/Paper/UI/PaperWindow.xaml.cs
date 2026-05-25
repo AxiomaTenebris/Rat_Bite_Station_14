@@ -398,6 +398,12 @@ namespace Content.Client.Paper.UI
             // Ratbite
             DrawWindow.Strokes = state.Strokes;
             DrawingButtons.Visible = isEditing && DrawWindow.Drawing;
+
+            // We disable the Draw Window during editing because we are never drawing
+            // at this point, and we don't want to see our scribbles when we are editing
+            // text
+            DrawWindow.Visible = !isEditing;
+
         }
 
         /// <summary>
@@ -475,6 +481,7 @@ namespace Content.Client.Paper.UI
         {
             DrawButton.Pressed = DrawWindow.Drawing;
             DrawingButtons.Visible = DrawWindow.Drawing;
+            DrawWindow.Visible = DrawWindow.Drawing;
 
             if (DrawWindow.Drawing)
             {
