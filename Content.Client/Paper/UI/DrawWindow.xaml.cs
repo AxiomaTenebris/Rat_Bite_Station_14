@@ -25,6 +25,7 @@ public sealed partial class DrawWindow : Container
 {
 
     public List<PaperStroke> Strokes { get; set; } = new();
+    public int MaxDrawingPoints { get; set; } = -1;
     private bool _drawing = false;
     public bool Drawing
     {
@@ -68,6 +69,12 @@ public sealed partial class DrawWindow : Container
             return;
 
         _isMouseDown = true;
+
+        // If the last stroke had at least one point, begin a new one
+        if (Strokes.Count != 0 && Strokes[^1].Points.Count > 1)
+        {
+            Strokes.Add(new PaperStroke(new Color(0, 0, 0, 255)));
+        }
     }
 
     protected override void KeyBindUp(GUIBoundKeyEventArgs args)
@@ -80,12 +87,16 @@ public sealed partial class DrawWindow : Container
         }
 
         _isMouseDown = false;
+    }
 
-        // If the last stroke had at least one point, begin a new one
-        if (Strokes.Count != 0 && Strokes[^1].Points.Count > 1)
+    private int CountPoints(List<PaperStroke> strokes)
+    {
+        int count = 0;
+        foreach (var stroke in strokes)
         {
-            Strokes.Add(new PaperStroke(new Color(0, 0, 0, 255)));
+            count += stroke.Points.Count;
         }
+        return count;
     }
 
     protected override void MouseMove(GUIMouseMoveEventArgs args)
@@ -93,6 +104,11 @@ public sealed partial class DrawWindow : Container
         base.MouseMove(args);
         if (Drawing && _isMouseDown)
         {
+            if (CountPoints(Strokes) >= MaxDrawingPoints)
+            {
+                return;
+            }
+
             if (Strokes.Count == 0)
             {
                 Strokes.Add(new PaperStroke(new Color(0, 0, 0, 255)));

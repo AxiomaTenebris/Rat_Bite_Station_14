@@ -251,6 +251,30 @@ public sealed class PaperSystem : EntitySystem
         };
     }
 
+    // Ratbite drawing on paper
+    private bool SanitizeDrawing(List<PaperStroke> strokes, int maxPoints)
+    {
+        int pointCount = 0;
+        for (int i = 0; i < strokes.Count; i++)
+        {
+            var stroke = strokes[i];
+            // There should be at least 2 points per stroke
+            if (stroke.Points.Count <= 1)
+            {
+                return false;
+            }
+            pointCount += stroke.Points.Count;
+            // If we reached past the max point count, remove everything past the limit
+            // including this stroke
+            if (pointCount > maxPoints)
+            {
+                strokes.RemoveRange(i, strokes.Count - i);
+                return true;
+            }
+        }
+        return true;
+    }
+
     private void OnInputTextMessage(Entity<PaperComponent> entity, ref PaperInputTextMessage args)
     {
         var ev = new PaperWriteAttemptEvent(entity.Owner);
@@ -258,7 +282,7 @@ public sealed class PaperSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
-        if (args.Text.Length <= entity.Comp.ContentSize)
+        if (args.Text.Length <= entity.Comp.ContentSize && SanitizeDrawing(args.Strokes, entity.Comp.MaxDrawingPoints))
         {
             SetContent(entity, args.Text, args.Strokes);
 

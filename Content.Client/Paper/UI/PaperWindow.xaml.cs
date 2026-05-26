@@ -150,6 +150,20 @@ namespace Content.Client.Paper.UI
             }
         }
 
+        private int _MaxDrawingPoints = -1;
+        public int MaxDrawingPoints
+        {
+            get
+            {
+                return _MaxDrawingPoints;
+            }
+            set
+            {
+                DrawWindow.MaxDrawingPoints = value;
+                _MaxDrawingPoints = value;
+            }
+        }
+
         public PaperWindow()
         {
             IoCManager.InjectDependencies(this);
@@ -453,6 +467,11 @@ namespace Content.Client.Paper.UI
             SaveButton.Disabled = true;
             // Ratbite: Stop drawing
             DrawWindow.Drawing = false;
+            var strokes = DrawWindow.Strokes;
+            if (strokes.Count > 0 && strokes[^1].Points.Count == 0)
+            {
+                strokes.RemoveAt(strokes.Count - 1);
+            }
             UpdateDrawingState();
             OnSaved?.Invoke(Rope.Collapse(Input.TextRope), DrawWindow.Strokes);
         }

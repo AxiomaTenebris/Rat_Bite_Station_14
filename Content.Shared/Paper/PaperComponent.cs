@@ -179,4 +179,9 @@ public sealed partial class PaperComponent : Component
     // Ratbite change: Drawings
     [DataField("strokes"), AutoNetworkedField]
     public List<PaperStroke> Strokes { get; set; } = new();
+
+    // Worst case scenario this is about 20KB of data, should be manageable
+    // (500 strokes with 2 points each, real drawings will have less)
+    [DataField]
+    public int MaxDrawingPoints { get; set; } = 2000;
 }

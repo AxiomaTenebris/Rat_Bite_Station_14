@@ -114,6 +114,7 @@ public sealed class PaperBoundUserInterface : BoundUserInterface
         if (EntMan.TryGetComponent<PaperComponent>(Owner, out var paper))
         {
             _window.MaxInputLength = paper.ContentSize;
+            _window.MaxDrawingPoints = paper.MaxDrawingPoints;
         }
         if (EntMan.TryGetComponent<PaperVisualsComponent>(Owner, out var visuals))
         {
