@@ -126,6 +126,9 @@
   - LanguageKnowledge
   - ForeignerTrait
   # Einstein Engines - Language end
+  # ratbite
+  - CombatTrained
+  - CombatUntrained
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit

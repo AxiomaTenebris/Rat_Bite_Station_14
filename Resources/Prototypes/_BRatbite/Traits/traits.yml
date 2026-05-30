@@ -150,3 +150,14 @@
   cost: 0
   components:
   - type: Atheist
+
+- type: trait
+  id: CombatTrained
+  name: trait-combat-trained-name
+  description: trait-combat-trained-desc
+  category: Mental
+  cost: 2
+  speciesBlacklist:
+  - Oni
+  components:
+  - type: CombatTrained

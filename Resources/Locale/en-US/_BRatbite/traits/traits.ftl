@@ -52,3 +52,8 @@ trait-lord-perstronzios-rage-desc =
 
 trait-atheist-name = Atheist
 trait-atheist-desc = You do not believe in Gods
+
+trait-combat-trained-name = Combat Trained
+trait-combat-trained-desc = You are trained in combat and able to shoot guns accurately. Security Personnel are combat trained by default.
+gun-fail-drop-shoot = You accidentally drop your gun!
+gun-fail-shoot = Your hands tremble and you were unable to shoot.

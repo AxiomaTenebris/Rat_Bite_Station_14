@@ -32,6 +32,7 @@
     components:
       - type: Condemned
         soulOwnedNotDevil: true # Bootlicker for NT
+      - type: CombatTrained # ratbite
 
 - type: startingGear
   id: MedicalOrderlyGear
@@ -78,6 +79,7 @@
     components:
       - type: Condemned
         soulOwnedNotDevil: true
+      - type: CombatTrained # ratbite
 
 - type: startingGear
   id: CargoInsuranceGear
@@ -122,6 +124,7 @@
     components:
       - type: Condemned
         soulOwnedNotDevil: true
+      - type: CombatTrained # ratbite
 
 - type: startingGear
   id: ScicurityguardGear
@@ -170,6 +173,7 @@
     components:
       - type: Condemned
         soulOwnedNotDevil: true
+      - type: CombatTrained # ratbite
   - !type:AddComponentSpecial
     components:
     - type: EngineeringStaff
