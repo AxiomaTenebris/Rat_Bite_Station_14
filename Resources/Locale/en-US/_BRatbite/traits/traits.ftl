@@ -55,5 +55,7 @@ trait-atheist-desc = You do not believe in Gods
 
 trait-combat-trained-name = Combat Trained
 trait-combat-trained-desc = You are trained in combat and able to shoot guns accurately. Security Personnel are combat trained by default.
+trait-scared-of-guns-name = Scared of guns
+trait-scared-of-guns-desc = You are scared of guns and may drop them accidentally when shooting.
 gun-fail-drop-shoot = You accidentally drop your gun!
 gun-fail-shoot = Your hands tremble and you were unable to shoot.

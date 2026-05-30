@@ -161,3 +161,14 @@
   - Oni
   components:
   - type: CombatTrained
+
+- type: trait
+  id: ScaredOfGuns
+  name: trait-scared-of-guns-name
+  description: trait-scared-of-guns-desc
+  category: Mental
+  cost: -3
+  speciesBlacklist:
+  - Oni
+  components:
+    - type: ScaredOfGuns
