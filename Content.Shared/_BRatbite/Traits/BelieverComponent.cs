@@ -4,13 +4,7 @@
 
 namespace Content.Shared._BRatbite.Traits;
 
-using Robust.Shared.Maths;
-
 [RegisterComponent]
-public sealed partial class MartialArtistComponent : Component
+public sealed partial class BelieverComponent : Component
 {
-    [DataField]
-    public Angle WideAttackAngle = Angle.FromDegrees(90);
-
-    public Angle? OriginalAngle;
 }

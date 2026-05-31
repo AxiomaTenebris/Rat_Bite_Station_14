@@ -1430,6 +1430,10 @@
         conditions:
         - !type:TotalDamage
           max: 50
+        - !type:HasComponentCondition
+          components:
+          - Atheist
+          invert: true
         damage:
           types:
             Blunt: -0.2

@@ -51,4 +51,7 @@ trait-lord-perstronzios-rage-desc =
     You've achieved the highest levels of Mald-estending. Nothing can stop you.
 
 trait-atheist-name = Atheist
-trait-atheist-desc = You do not believe in Gods
+trait-atheist-desc = You don't believe in the existence of higher powers. They, of course, don't like it that much.
+
+trait-believer-name = Believer
+trait-believer-desc = Either by having a strong faith, or generous donations to the Church, you're favored and loved by Gods.
