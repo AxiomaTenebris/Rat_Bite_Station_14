@@ -252,7 +252,7 @@
   desc: reagent-desc-bicaridine
   physicalDesc: reagent-physical-desc-opaque
   flavor: medicine
-  color: "#c94300" # Ratbite - add a recipe for romerol, other minor chem changes, original was #ffaa00
+  color: "#e0a5b9" # Ratbite - add a recipe for romerol, other minor chem changes, original was #ffaa00
   metabolisms:
     Medicine:
       metabolismRate: 0.25 # Ratbite - made niche/underused chems more balanced
