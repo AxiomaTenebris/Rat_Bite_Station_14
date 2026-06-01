@@ -1371,7 +1371,7 @@
       - !type:HealthChange
         damage:
           types:
-            Piercing: -5 #Ratbite - changed from -4 to -5
+            Piercing: -5 #Ratbite - changed from -4...
             Blunt: 0.15
       - !type:HealthChange
         conditions:
