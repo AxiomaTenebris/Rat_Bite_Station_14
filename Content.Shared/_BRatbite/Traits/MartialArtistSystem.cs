@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Weapons.Melee;
+using Content.Goobstation.Common.Weapons;
+using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Shared._BRatbite.Traits;
 
@@ -12,27 +13,32 @@ public sealed class MartialArtistSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MartialArtistComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<MartialArtistComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<MartialArtistComponent, GetUserMeleeDamageEvent>(OnGetUserMeleeDamage);
+        SubscribeLocalEvent<MartialArtistComponent, GetMeleeAttackRateEvent>(OnGetMeleeAttackRate);
+        SubscribeLocalEvent<MartialArtistComponent, GetLightAttackRangeEvent>(OnGetLightAttackRange);
     }
 
-    private void OnStartup(Entity<MartialArtistComponent> ent, ref ComponentStartup args)
+    private void OnGetUserMeleeDamage(Entity<MartialArtistComponent> ent, ref GetUserMeleeDamageEvent args)
     {
-        if (!TryComp<MeleeWeaponComponent>(ent.Owner, out var melee))
+        if (args.Weapon != ent.Owner)
             return;
 
-        ent.Comp.OriginalAngle = melee.Angle;
-        melee.Angle = ent.Comp.WideAttackAngle;
-        Dirty(ent.Owner, melee);
+        args.Damage *= ent.Comp.DamageMultiplier;
     }
 
-    private void OnShutdown(Entity<MartialArtistComponent> ent, ref ComponentShutdown args)
+    private void OnGetMeleeAttackRate(Entity<MartialArtistComponent> ent, ref GetMeleeAttackRateEvent args)
     {
-        if (ent.Comp.OriginalAngle is not { } angle ||
-            !TryComp<MeleeWeaponComponent>(ent.Owner, out var melee))
+        if (args.Weapon != ent.Owner)
             return;
 
-        melee.Angle = angle;
-        Dirty(ent.Owner, melee);
+        args.Multipliers *= ent.Comp.AttackRateMultiplier;
+    }
+
+    private void OnGetLightAttackRange(Entity<MartialArtistComponent> ent, ref GetLightAttackRangeEvent args)
+    {
+        if (args.User != ent.Owner)
+            return;
+
+        args.Range *= ent.Comp.RangeMultiplier;
     }
 }

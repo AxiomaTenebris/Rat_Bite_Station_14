@@ -4,13 +4,15 @@
 
 namespace Content.Shared._BRatbite.Traits;
 
-using Robust.Shared.Maths;
-
 [RegisterComponent]
 public sealed partial class MartialArtistComponent : Component
 {
     [DataField]
-    public Angle WideAttackAngle = Angle.FromDegrees(90);
+    public float DamageMultiplier = 1.2f;
 
-    public Angle? OriginalAngle;
+    [DataField]
+    public float AttackRateMultiplier = 1.25f;
+
+    [DataField]
+    public float RangeMultiplier = 1.1f;
 }
