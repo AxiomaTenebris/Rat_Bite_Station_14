@@ -65,7 +65,7 @@
 #    - UndeterminedRSOHardsuit  Removed until rework
 
 - type: chameleonOutfit
-  id: RSOChameleonOutfit
+  id: RedsightOverseerChameleonOutfit
   job: RedsightOverseer
   hasMindShield: true
   equipment:
