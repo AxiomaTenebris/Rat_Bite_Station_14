@@ -97,7 +97,7 @@
   storage:
     back:
     - Flash
-    - ClothingMaskGasSecurity
+    - ClothingBSOMaskGasSwat
     - CombatKnife
     - BlueshieldUndeterminedHardsuit
     - BlueshieldUndeterminedWeapon
