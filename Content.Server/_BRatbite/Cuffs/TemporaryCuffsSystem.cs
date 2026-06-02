@@ -30,14 +30,19 @@ public sealed class TemporaryCuffsSystem : EntitySystem
 
     private void OnCuffsStruggleInterrupted(Entity<TemporaryCuffsComponent> ent, ref TemporaryCuffsStruggleInterruptedEvent args)
     {
+        StartBreakout(ent, args.Target);
+    }
+
+    private void StartBreakout(Entity<TemporaryCuffsComponent> ent, EntityUid target)
+    {
         CancelBreakout(ent.Comp);
 
         var doAfter = new DoAfterArgs(EntityManager,
-            args.Target,
+            target,
             ent.Comp.Lifetime,
             new TemporaryCuffsBreakoutDoAfterEvent(),
             ent.Owner,
-            target: args.Target,
+            target: target,
             used: ent.Owner)
         {
             BreakOnMove = false,
@@ -52,6 +57,7 @@ public sealed class TemporaryCuffsSystem : EntitySystem
         };
 
         _doAfter.TryStartDoAfter(doAfter, out ent.Comp.BreakoutDoAfter);
+        Log.Debug($"Started temporary cuffs breakout for {ToPrettyString(target)} using {ToPrettyString(ent.Owner)}.");
     }
 
     private void OnBreakoutDoAfter(Entity<TemporaryCuffsComponent> ent, ref TemporaryCuffsBreakoutDoAfterEvent args)
