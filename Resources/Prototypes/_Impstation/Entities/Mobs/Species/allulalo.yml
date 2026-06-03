@@ -54,7 +54,7 @@
       - ReagentId: BloodAllulalo
         Quantity: 250 #should be 50 less than the default of 300. theyre small
   - type: DamageVisuals
-    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    thresholds: [ 10, 15, 20, 30, 40, 50 ]
     targetLayers:
     - "enum.HumanoidVisualLayers.Chest"
     - "enum.HumanoidVisualLayers.Head"
@@ -69,8 +69,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
-      200: Dead
+      50: Critical #Ratbite
+      100: Dead #Ratbite
   - type: MeleeWeapon #bites you
     soundHit:
       collection: AlienClaw

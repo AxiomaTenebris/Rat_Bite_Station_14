@@ -121,16 +121,16 @@
     identifyHidden: true
     traitGranted: true
 
-- type: trait
-  id: BionicLegs
-  name: trait-bionic-legs-name
-  description: trait-bionic-legs-desc
-  category: Physical
-  cost: 10
-  components:
-  - type: BionicLegs
-    walkSpeed: 2.8125
-    sprintSpeed: 4.8375
+#- type: trait
+#  id: BionicLegs
+#  name: trait-bionic-legs-name
+#  description: trait-bionic-legs-desc
+#  category: Physical
+#  cost: 10
+#  components:
+#  - type: BionicLegs
+#    walkSpeed: 2.8125
+#    sprintSpeed: 4.8375
 
 - type: trait
   id: OsteogenesisImperfecta
@@ -258,7 +258,7 @@
   name: trait-redshirt-name
   description: trait-redshirt-desc
   category: Mental
-  cost: -6 # Ratbite nerf, encourages antisocial gameplay at -8, crazy.
+  cost: -4 # Ratbite nerf, encourages antisocial gameplay at -8, crazy.
   mutuallyExclusiveTraits:
   - WillToLive
   speciesBlacklist:

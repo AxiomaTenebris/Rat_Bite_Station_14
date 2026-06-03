@@ -82,6 +82,8 @@
       types:
         Blunt: 8
         Structural: 12
+  - type: MovementSpeedModifier #Ratbite
+    coefficient: 1.5
   - type: DamageOtherOnHit
     damage:
       types:
