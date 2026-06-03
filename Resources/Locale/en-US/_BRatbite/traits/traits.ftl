@@ -2,6 +2,15 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+trait-small-name = Small
+trait-small-desc = Hi, I'm Smolly!
+
+trait-leap-name = Leap
+trait-leap-desc = You can leap in the direction you are facing.
+
+trait-sneak-name = Sneak
+trait-sneak-desc = You feel more sneaky.
+
 trait-loyalty-training-name = NanoTrasen Loyalty Training
 trait-loyalty-training-desc =
     You start with a mindshield implant. Normal mindshield rules apply.
@@ -57,12 +66,9 @@ trait-atheist-desc = You don't believe in the existence of higher powers. They, 
 trait-believer-name = Believer
 trait-believer-desc = Either by having a strong faith, or generous donations to the Church, you're favored and loved by Gods.
 
-trait-atheist-desc = You do not believe in Gods
-
 trait-combat-trained-name = Combat Trained
 trait-combat-trained-desc = You are trained in combat and able to shoot guns accurately. Security Personnel are combat trained by default.
 trait-scared-of-guns-name = Scared of guns
 trait-scared-of-guns-desc = You are scared of guns and may drop them accidentally when shooting.
 gun-fail-drop-shoot = You accidentally drop your gun!
 gun-fail-shoot = Your hands tremble and you were unable to shoot.
-

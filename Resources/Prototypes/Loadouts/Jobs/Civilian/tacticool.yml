@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2026 Rat Bite Contributors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: loadout
+  id: TacticoolJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTacticool
+
+- type: loadout
+  id: TacticoolJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTacticool
+
+- type: loadout
+  id: NeckGaiter
+  equipment:
+    mask: ClothingMaskNeckGaiter

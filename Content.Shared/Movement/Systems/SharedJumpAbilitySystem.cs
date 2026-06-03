@@ -48,6 +48,9 @@ public sealed partial class SharedJumpAbilitySystem : EntitySystem
         _throwing.TryThrow(args.Performer, direction, entity.Comp.JumpThrowSpeed);
 
         _audio.PlayPredicted(entity.Comp.JumpSound, args.Performer, args.Performer);
+        RaiseLocalEvent(args.Performer, new JumpAbilityPerformedEvent());
         args.Handled = true;
     }
 }
+
+public sealed class JumpAbilityPerformedEvent : EntityEventArgs;
