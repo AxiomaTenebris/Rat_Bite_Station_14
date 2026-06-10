@@ -295,6 +295,7 @@ public abstract class SharedImplanterSystem : EntitySystem
                     }
                     else
                     {
+                        // Ratbite: add logs when removing mindshield implants
                         if (HasComp<MindShieldImplantComponent>(implant))
                         {
                             _adminLog.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(user):player} removed mindshield implant from {(user == target ? "themselves" : $"{ToPrettyString(target):player}")}");
