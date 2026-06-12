@@ -136,6 +136,7 @@
   - Diona # Goobstation - Lack of legs makes it weaker than other species in combat
   - Harpy # Goobstation - Same with Diona
   - Plasmaman # Goobstation - Do i need to fucking say it?
+  - Scurret # Ratbite - Not sure if scurrets are already not allowed to be ghost roles, but it doesn't hurt to make sure
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
@@ -278,7 +279,7 @@
       prototypes: [ ERTLeaderGear ]
       roleLoadout: [ RoleSurvivalExtended ]
     - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Goobstation
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm, BluespaceLifelineImplant ] # Goobstation; Ratbite - bluespace implant because unrobust ERT keep giving antags/selfantags free loot
     - type: RandomMetadata
       nameSegments:
       - NamesMilitaryFirstLeader
@@ -556,8 +557,7 @@
     - type: Loadout
       prototypes: [ ERTSecurityGear ]
       roleLoadout: [ RoleSurvivalExtended ]
-    - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
+      # Ratbite - Removed unneccessary implant list (its already defined in ERTLeader)
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVA
@@ -585,8 +585,7 @@
     - type: Loadout
       prototypes: [ ERTSecurityGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
-    - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
+      # Ratbite - Removed unneccessary implant list (its already defined in ERTLeader)
 
 # ERT Lecter is dead, and I have killed it. - Sol
 #- type: entity
@@ -650,8 +649,7 @@
     - type: Loadout
       prototypes: [ ERTMedicalGear ]
       roleLoadout: [ RoleSurvivalExtended ]
-    - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
+      # Ratbite - Removed unneccessary implant list (its already defined in ERTLeader)
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalEVA
@@ -686,8 +684,7 @@
     - type: Loadout
       prototypes: [ ERTMedicalGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
-    - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
+      # Ratbite - Removed unneccessary implant list (its already defined in ERTLeader)
 
 ## CBURN
 
@@ -707,7 +704,7 @@
   parent: CentcommHumanoid
   components:
     - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, BluespaceLifelineImplant ] # Goobstation; Ratbite - bluespace implant because unrobust ERT keep giving antags/selfantags free loot
     - type: Loadout
       prototypes: [CBURNGear]
       roleLoadout: [ RoleSurvivalEVA ]
