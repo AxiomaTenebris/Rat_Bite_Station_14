@@ -41,7 +41,6 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
 
     [UISystemDependency] private readonly GhostSystem? _system = default;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IClientNetManager _client = default!;
     [Dependency] private readonly IGameController _gameController = default!;
 
     private int _altServerPopCount = 0;
