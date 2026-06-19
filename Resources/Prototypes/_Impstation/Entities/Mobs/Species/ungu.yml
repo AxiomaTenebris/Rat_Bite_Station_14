@@ -152,12 +152,12 @@
       types:
         Heat: 3.0 #per second, scales with temperature & other constants
   - type: Bloodstream
-    bloodReagent: Blood     # not adding a max blood volume since funny :godo: 15 bloodpack uses for you!
+    bloodReagent: Blood     # Ratbite - not adding a max blood volume since funny :godo: 15 bloodpack uses for you!
     # bloodReferenceSolution: 
     #   reagents:
     #   - ReagentId: Blood
     #     Quantity: 300
-    # ^ LLM hallucinated shitcode?
+    # ^ LLM hallucinated shitcode? or impstation dependent? Call it.
   - type: DamageVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     targetLayers:
