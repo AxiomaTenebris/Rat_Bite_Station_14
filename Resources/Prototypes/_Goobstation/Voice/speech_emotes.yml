@@ -65,7 +65,7 @@
     - bowel howled
     - accelerates climate change
 
-#<Ratbite> - remove goob fartslop
+# <Ratbite> - remove goob fartslop
 #- type: emote
 #  id: FartInhale
 #  name: chat-emote-name-fart-inhale
@@ -137,7 +137,7 @@
 #    - ultra farts
 #    - ultra farted
 #    - ultra farting
-#</Ratbite>
+# </Ratbite>
 
 - type: emote
   id: Flap
