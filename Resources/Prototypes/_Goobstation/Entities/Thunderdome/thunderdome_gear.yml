@@ -15,6 +15,7 @@
       - MindShieldImplanter # Ratbite - too lazy to make thunderdome guns without a MS requirement, hopefully people arent morons and WONT think that MS rules apply but ratbite's playerbase is stupider than goob's so who knows
       # Because of an immence skill issue (goob coders not doing useless shit), i cannot directly add a MS to the entity. So fuck you.
       # You VILL manually use the mindshield, und it VILL get worse!
+      - BookCombatTraining # Ratbite - see above comment       slop slop slop sahur
 
 - type: startingGear
   id: ThunderdomeShotgun
