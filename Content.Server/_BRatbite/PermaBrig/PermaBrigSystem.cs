@@ -27,6 +27,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared._BRatbite.CryoSickness;
 
 namespace Content.Server._BRatbite.PermaBrig;
 
@@ -53,6 +54,7 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
     [Dependency] private readonly EntityManager _ent = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly TraitSystem _trait = default!;
+    [Dependency] private readonly CryoSicknessSystem _cryoSicknessSystem = default!;
 
     public HashSet<ICommonSession> PermaIndividuals = new();
     public Dictionary<ICommonSession, (TimeSpan, TimeSpan)> PermaIndividualJoinedTime = new();
@@ -234,6 +236,7 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
 
         _stationRecords.OnPlayerSpawn(aev);
         _trait.ApplyTraits(mob, character);
+        _cryoSicknessSystem.ApplyComponent(mob);
     }
 
     // private void OnRoundEnd(RoundEndMessageEvent ev) Auto decrease of perma sentence not yet implemented
