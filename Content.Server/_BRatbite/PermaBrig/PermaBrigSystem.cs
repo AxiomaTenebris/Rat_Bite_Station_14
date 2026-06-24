@@ -19,6 +19,9 @@ using Content.Shared.Roles.Jobs;
 using Content.Shared.Security.Components;
 using Content.Shared._BRatbite.PermaBrig;
 using Content.Server.Traits;
+using Content.Shared.Cuffs;
+using Content.Shared.Cuffs.Components;
+using Content.Shared.Hands.EntitySystems;
 using Robust.Server.Audio;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -53,6 +56,8 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
     [Dependency] private readonly EntityManager _ent = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly TraitSystem _trait = default!;
+    [Dependency] private readonly SharedCuffableSystem _cuffableSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public HashSet<ICommonSession> PermaIndividuals = new();
     public Dictionary<ICommonSession, (TimeSpan, TimeSpan)> PermaIndividualJoinedTime = new();
@@ -94,7 +99,7 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
             pool.Remove(player);
             GameTicker.PlayerJoinGame(player);
 
-            SpawnPrisonerPlayer(player);
+            SpawnPrisonerPlayer(player, _permaBrigManager.GetBrigInpatient(player.UserId));
 
             _sawmill.Info($"Player sent to perma: {player}");
         }
@@ -114,7 +119,7 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
 
         PermaIndividuals.Add(ev.Player);
 
-        SpawnPrisonerPlayer(ev.Player);
+        SpawnPrisonerPlayer(ev.Player, _permaBrigManager.GetBrigInpatient(ev.Player.UserId));
 
         ev.Handled = true;
 
@@ -141,7 +146,7 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
         return _random.Pick(possiblePositions);
     }
 
-    private void SpawnPrisonerPlayer(ICommonSession player)
+    private void SpawnPrisonerPlayer(ICommonSession player, bool inpatient)
     {
         var stations = _ticker.GetSpawnableStations();
         _random.Shuffle(stations);
@@ -174,6 +179,12 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
                 "Prisoner",
                 character,
                 station);
+            //Inpatients should spawn with a comfy straightjacket
+            if(inpatient){
+                var cuffs = _ent.SpawnEntity("ClothingOuterStraightjacket", Transform(mobMaybe.Value).Coordinates);
+                var comp = EnsureComp<CuffableComponent>(mobMaybe.Value);
+                _cuffableSystem.TryAddNewCuffs(mobMaybe.Value, mobMaybe.Value, cuffs, comp);
+            }
         }
         else
         {
