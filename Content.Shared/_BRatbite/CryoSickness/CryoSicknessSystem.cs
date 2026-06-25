@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._BRatbite.CryoSickness;
 
-public sealed partial class CryoSicknessSystem : EntitySystem
+public abstract class SharedCryoSicknessSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
