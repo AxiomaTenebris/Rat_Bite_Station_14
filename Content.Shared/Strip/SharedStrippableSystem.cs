@@ -403,13 +403,14 @@ public abstract class SharedStrippableSystem : EntitySystem
         EntityUid user,
         EntityUid target,
         EntityUid item,
-        string slot)
+        string slot,
+    bool shouldWarn = true)
     {
         if (!CanStripRemoveInventory(user, target, item, slot))
             return;
 
         // Ratbite
-        if (!WarnSsd(user, target, item))
+        if (shouldWarn && !WarnSsd(user, target, item))
             return;
 
         if (!_inventorySystem.TryGetSlot(target, slot, out var slotDef))
@@ -460,7 +461,8 @@ public abstract class SharedStrippableSystem : EntitySystem
         EntityUid user,
         EntityUid target,
         EntityUid item,
-        string slot)
+        string slot,
+    bool shouldWarn = true)
     {
         if (!_interactionSystem.InRangeAndAccessible(user, target))
             return false;
@@ -468,7 +470,7 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (!CanStripRemoveInventory(user, target, item, slot))
             return false;
 
-        StartStripRemoveInventory(user, target, item, slot);
+        StartStripRemoveInventory(user, target, item, slot, shouldWarn: shouldWarn);
         return true;
     }
 
@@ -646,7 +648,8 @@ public abstract class SharedStrippableSystem : EntitySystem
         Entity<HandsComponent?> target,
         EntityUid item,
         string handName,
-        StrippableComponent? targetStrippable = null)
+        StrippableComponent? targetStrippable = null,
+    bool shouldWarn = true)
     {
         if (!Resolve(user, ref user.Comp) ||
             !Resolve(target, ref target.Comp) ||
@@ -657,7 +660,7 @@ public abstract class SharedStrippableSystem : EntitySystem
             return;
 
         // Ratbite
-        if (!WarnSsd(user, target, item))
+        if (shouldWarn && !WarnSsd(user, target, item))
             return;
 
         var (time, stealth, subtle) = GetStripTimeModifiers(user, target, null, targetStrippable.HandStripDelay);
@@ -703,7 +706,8 @@ public abstract class SharedStrippableSystem : EntitySystem
         Entity<HandsComponent?> target,
         EntityUid item,
         string handName,
-        StrippableComponent? targetStrippable = null)
+        StrippableComponent? targetStrippable = null,
+    bool shouldWarn = true)
     {
         if (!_interactionSystem.InRangeAndAccessible(user.Owner, target.Owner))
             return false;
@@ -711,7 +715,7 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (!CanStripRemoveHand(user.Owner, target, item, handName))
             return false;
 
-        StartStripRemoveHand(user, target, item, handName, targetStrippable);
+        StartStripRemoveHand(user, target, item, handName, targetStrippable, shouldWarn: shouldWarn);
         return true;
     }
 
@@ -750,7 +754,7 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         if (ev.Event.InventoryOrHand)
         {
-            if ( ev.Event.InsertOrRemove && !CanStripInsertInventory((entity.Owner, entity.Comp), args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName) ||
+            if (ev.Event.InsertOrRemove && !CanStripInsertInventory((entity.Owner, entity.Comp), args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName) ||
                 !ev.Event.InsertOrRemove && !CanStripRemoveInventory(entity.Owner, args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName))
             {
                 ev.Cancel();
@@ -758,7 +762,7 @@ public abstract class SharedStrippableSystem : EntitySystem
         }
         else
         {
-            if ( ev.Event.InsertOrRemove && !CanStripInsertHand((entity.Owner, entity.Comp), args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName) ||
+            if (ev.Event.InsertOrRemove && !CanStripInsertHand((entity.Owner, entity.Comp), args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName) ||
                 !ev.Event.InsertOrRemove && !CanStripRemoveHand(entity.Owner, args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName))
             {
                 ev.Cancel();
