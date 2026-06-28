@@ -105,7 +105,7 @@ public abstract class SharedCryoSicknessSystem : EntitySystem
 
     private void OnShakeAwake(Entity<CryoSicknessComponent> ent, ref ShakeAwakeEvent args)
     {
-	_adminLog.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(ent):player} shook themselves off cryo sickness.");
+        _adminLog.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(ent):player} shook themselves off cryo sickness.");
         RemComp<CryoSicknessComponent>(ent);
     }
 }
