@@ -977,8 +977,6 @@
         - Sheet
         - RawMaterial
         - Ingot
-  - type: AccessReader # Ratbite: Add access reader to fabs
-    access: [["HeadOfPersonnel"]]
 
 - type: entity
   id: Biogenerator
@@ -1022,8 +1020,6 @@
     staticPacks:
     - BioGenIngredientsStatic
     - BioGenMaterialsStatic
-  - type: AccessReader # Ratbite: Add access reader to fabs
-    access: [["Hydroponics"]]
 
 - type: entity
   parent: [BaseLathe, BaseSiloUtilizer] # Goob edit

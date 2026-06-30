@@ -136767,6 +136767,8 @@ entities:
   entities:
   - uid: 20298
     components:
+    - type: AccessReader
+      access: [["HeadOfPersonnel"]]
     - type: Transform
       pos: -17.5,-48.5
       parent: 2
