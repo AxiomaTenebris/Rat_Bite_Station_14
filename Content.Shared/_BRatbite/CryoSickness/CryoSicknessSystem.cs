@@ -20,7 +20,9 @@ public abstract class SharedCryoSicknessSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
 
-    // Tag to mark entities who have had cryo sickness at some point
+    // Tag to mark entities who have had cryo sickness at some point.
+    // Entities with this tag cannot be attacked by people who are
+    // pacified by cryosickness.
     private readonly ProtoId<TagPrototype> _cryoSicknessTag = "CryoSickness";
     public override void Initialize()
     {
@@ -94,7 +96,18 @@ public abstract class SharedCryoSicknessSystem : EntitySystem
         {
             _statusEffectsSystem.TryRemoveStatusEffect(ent.Owner, ent.Comp.Effect);
             if (RemComp<PacifiedComponent>(ent))
+            {
+                // I'm not completely sold if it should be removed
+                // when people take damage, I am opting to make it
+                // like this to prevent people from intentionally take
+                // damage instead of shaking themselves off
+                // specifically so they can't get attacked by pacified
+                // people.  Self inflicted damage doesn't count, but
+                // there are other ways to take damage like spacing
+                // yourself.
+                _tagSystem.RemoveTag(ent, _cryoSicknessTag);
                 _popup.PopupEntity(Loc.GetString("cryosickness-resistance-popup"), ent.Owner, ent.Owner);
+            }
         }
         var newTime = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.ExpireSecondsAfterDamage);
         if (newTime < ent.Comp.ExpireTime)
