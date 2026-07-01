@@ -222,7 +222,8 @@
   cost: 3
   speciesBlacklist:
     - Felinid
-    #I think monolith had them have it by default but there's no real reason to exclude them...
+    - Tajaran
+    - Harpy
   components:
     - type: TrapAvoider
 
