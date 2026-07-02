@@ -83,11 +83,13 @@
     deleteOnCollide: false
     damage:
       types:
-        Heat: 5
-  - type: StaminaDamageOnCollide
-    damage: 20
+        Heat: 10 # Ratbite - Made plasmacutter deal damage instead of stam damage
+        Slash: 5 # Ratbite - 7 shot to crit, causes a slight amount of bleeding, should be fine
+      armorPenetration: -0.2 # Ratbite - make sure it can't be used for armored targets, for balance;
+#  - type: StaminaDamageOnCollide
+#    damage: 20            # Ratbite - removed
   - type: TimedDespawn
-    lifetime: 0.2
+    lifetime: 0.15 # Ratbite - Balance, used to be 0.2
   - type: PointLight
     radius: 2
     color: purple
