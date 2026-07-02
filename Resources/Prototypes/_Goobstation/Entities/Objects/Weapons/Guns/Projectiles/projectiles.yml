@@ -86,7 +86,7 @@
         Heat: 5 # Ratbite - Made plasmacutter deal damage instead of stam damage
         Slash: 10 # Ratbite - 7 shot to crit, causes some bleeding, should be fine
         Structural: 15
-      armorPenetration: -0.2 # Ratbite - hopefully will make bevv not maldPR this into oblivion when cargonia kills them with it :godo:
+      armorPenetration: -0.2 # Ratbite - hopefully will make bevv not maldPR this into oblivion when cargonia kills him with it :godo:
 #  - type: StaminaDamageOnCollide
 #    damage: 20            # Ratbite - removed
   - type: TimedDespawn
