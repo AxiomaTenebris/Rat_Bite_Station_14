@@ -1,7 +1,10 @@
 using Content.Shared.Actions;
+using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
+using Content.Shared.Database;
 using Content.Shared.GameTicking;
+using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
@@ -24,6 +27,7 @@ public abstract class SharedCryoSicknessSystem : EntitySystem
     // Entities with this tag cannot be attacked by people who are
     // pacified by cryosickness.
     private readonly ProtoId<TagPrototype> _cryoSicknessTag = "CryoSickness";
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!; // Ratbite: add logs when drawing implants
     public override void Initialize()
     {
         base.Initialize();
@@ -113,7 +117,12 @@ public abstract class SharedCryoSicknessSystem : EntitySystem
         if (newTime < ent.Comp.ExpireTime)
         {
             ent.Comp.ExpireTime = newTime;
+
         }
+
+        if (args.Origin is null) return;
+        _adminLog.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(args.Origin.Value):player} attacked {ToPrettyString(ent):player}, who still had cryo sickness");
+
     }
 
     public void ApplyComponent(EntityUid ent)
@@ -129,8 +138,12 @@ public abstract class SharedCryoSicknessSystem : EntitySystem
 
     private void OnShakeAwake(Entity<CryoSicknessComponent> ent, ref ShakeAwakeEvent args)
     {
+
         // If you manually shake awake, you don't deserve protection
         _tagSystem.RemoveTag(ent, _cryoSicknessTag);
+
+        _adminLog.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(ent):player} shook themselves off cryo sickness.");
+
         RemComp<CryoSicknessComponent>(ent);
     }
 
