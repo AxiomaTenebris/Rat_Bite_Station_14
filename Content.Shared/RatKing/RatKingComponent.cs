@@ -112,7 +112,7 @@ public sealed partial class RatKingComponent : Component
 
     // Ratbite
     [DataField]
-    public int MaxServantsToSpawn = 20;
+    public int MaxServantsToSpawn = 35;
 }
 
 [Serializable, NetSerializable]
