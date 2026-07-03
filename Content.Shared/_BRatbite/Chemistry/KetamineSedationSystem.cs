@@ -13,6 +13,7 @@ public sealed class KetamineSedationSystem : EntitySystem
 
         SubscribeLocalEvent<KetamineSedationComponent, GetDoAfterDelayMultiplierEvent>(OnGetDoAfterDelayMultiplier);
         SubscribeLocalEvent<KetamineSedationComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
+        SubscribeLocalEvent<UnstrapAttemptEvent>(OnUnstrapAttempt);
         SubscribeLocalEvent<UncuffAttemptEvent>(OnUncuffAttempt);
     }
 
@@ -35,6 +36,20 @@ public sealed class KetamineSedationSystem : EntitySystem
     private void OnUnbuckleAttempt(Entity<KetamineSedationComponent> ent, ref UnbuckleAttemptEvent args)
     {
         if (args.Cancelled || args.User != ent.Owner)
+            return;
+
+        args.Cancelled = true;
+    }
+
+    private void OnUnstrapAttempt(ref UnstrapAttemptEvent args)
+    {
+        if (args.Cancelled || args.User == null)
+            return;
+
+        if (args.User != args.Buckle.Owner)
+            return;
+
+        if (!HasComp<KetamineSedationComponent>(args.User.Value))
             return;
 
         args.Cancelled = true;

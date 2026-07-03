@@ -39,6 +39,14 @@
       - !type:GenericStatusEffect
         key: SlurredSpeech
         component: SlurredAccent
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        time: 18
+        type: Add
+        refresh: false
+      - !type:Drunk
+        boozePower: 35
+      - !type:Jitter
       - !type:MovespeedModifier
         walkSpeedModifier: 0.5
         sprintSpeedModifier: 0.5
