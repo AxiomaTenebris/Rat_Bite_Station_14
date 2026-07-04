@@ -128,7 +128,7 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
         _sawmill.Info($"Player sent to perma: {ev.Player}");
     }
 
-    private EntityCoordinates? GetSpawnLocation()
+    private EntityCoordinates? GetSpawnLocation(string jobId)
     {
         var points = EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
         var possiblePositions = new List<EntityCoordinates>();
@@ -136,7 +136,7 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
         while (points.MoveNext(out var uid, out var spawnPoint, out var xform))
         {
             if (spawnPoint.SpawnType == SpawnPointType.Job &&
-                (spawnPoint.Job == "Prisoner"))
+                spawnPoint.Job == jobId)
             {
                 possiblePositions.Add(xform.Coordinates);
             }
@@ -163,38 +163,53 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
         var newMind = _mind.CreateMind(data!.UserId, character.Name);
         _mind.SetUserId(newMind, data.UserId);
 
-        var jobPrototype = _prototypeManager.Index<JobPrototype>("Prisoner");
+        var jobId = "Prisoner";
+        if (inpatient)
+        {
+            jobId = _prototypeManager.HasIndex<JobPrototype>("SanitariumPatient")
+                ? "SanitariumPatient"
+                : "Prisoner";
+        }
 
         _playTimeTrackings.PlayerRolesChanged(player);
-
-        GetSpawnLocation();
 
         EntityCoordinates? spawnLoc = null;
         EntityUid? mobMaybe = null;
 
-        spawnLoc = GetSpawnLocation();
+        spawnLoc = GetSpawnLocation(jobId);
+
+        if (inpatient && jobId == "SanitariumPatient" && spawnLoc == null)
+        {
+            // If no sanitarium spawnpoint exists, use Prisoner spawn routing instead of station fallback.
+            jobId = "Prisoner";
+            spawnLoc = GetSpawnLocation(jobId);
+        }
+
+        var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
 
         if (spawnLoc != null)
         {
             mobMaybe = _stationSpawning.SpawnPlayerMob(
                 spawnLoc.Value,
-                "Prisoner",
+            jobId,
                 character,
                 station);
-            //Inpatients should spawn with a comfy straightjacket
-            if(inpatient){
-                var cuffs = _ent.SpawnEntity("ClothingOuterStraightjacket", Transform(mobMaybe.Value).Coordinates);
-                var comp = EnsureComp<CuffableComponent>(mobMaybe.Value);
-                _cuffableSystem.TryAddNewCuffs(mobMaybe.Value, mobMaybe.Value, cuffs, comp);
-            }
         }
         else
         {
-            mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, "Prisoner", character);
+            mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, jobId, character);
         }
 
         DebugTools.AssertNotNull(mobMaybe);
         var mob = mobMaybe!.Value;
+
+        // Inpatients should always receive a straightjacket, regardless of spawn path.
+        if (inpatient)
+        {
+            var cuffs = _ent.SpawnEntity("ClothingOuterStraightjacket", Transform(mob).Coordinates);
+            var comp = EnsureComp<CuffableComponent>(mob);
+            _cuffableSystem.TryAddNewCuffs(mob, mob, cuffs, comp);
+        }
 
         var brigTime = _permaBrigManager.GetBrigTime(player.UserId);
         var expireTime = TimeSpan.FromMinutes(brigTime) + Timing.CurTime;
@@ -219,7 +234,7 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
         _mind.TransferTo(newMind, mob);
         _admin.UpdatePlayerList(player);
 
-        _roles.MindAddJobRole(newMind, silent: false, jobPrototype: "Prisoner");
+        _roles.MindAddJobRole(newMind, silent: false, jobPrototype: jobId);
 
         var briefing = Loc.GetString("perma-prisoner-briefing",
             ("minutes", brigTime));
@@ -238,7 +253,7 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
 
         var aev = new PlayerSpawnCompleteEvent(mob,
             player,
-            "Prisoner",
+            jobId,
             false,
             true,
             0,
