@@ -242,6 +242,7 @@ namespace Content.Client.Voting
         public void SendCastVote(int voteId, int option)
         {
             var data = _votes[voteId];
+            if (!data.AllowMultiple) data.OurVotes.Clear();
             // Update immediately to avoid any funny reconciliation bugs.
             // See also code in server side to avoid bulldozing this.
             if (!data.OurVotes.Contains(option))
