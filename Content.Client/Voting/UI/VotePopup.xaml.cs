@@ -80,6 +80,7 @@ namespace Content.Client.Voting.UI
                 {
                     _voteButtons[i].Text = Loc.GetString("ui-vote-button-no-votes", ("text", entry.Text));
                 }
+                _voteButtons[i].Pressed = _vote.OurVotes.Contains(i);
             }
         }
 
