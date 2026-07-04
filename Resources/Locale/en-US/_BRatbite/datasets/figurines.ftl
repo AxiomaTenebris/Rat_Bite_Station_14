@@ -11,3 +11,12 @@ plushies-carmelladot-10 = Please don’t throw me into the burn chamber!
 plushies-carmelladot-11 = They say carmelly , can you help drop my permas.
 plushies-carmelladot-12 = The chemist got incomp for not making derma , feeling like a clown call it jerma.
 plushies-carmelladot-13 = I circle round the station, cargo doin’ tax evasion and I just hit on the slots, I made a lots.
+
+plushies-batch-1 = TODO: Replace with your Batch line 1.
+plushies-batch-2 = TODO: Replace with your Batch line 2.
+plushies-batch-3 = TODO: Replace with your Batch line 3.
+plushies-batch-4 = TODO: Replace with your Batch line 4.
+plushies-batch-5 = TODO: Replace with your Batch line 5.
+plushies-batch-6 = TODO: Replace with your Batch line 6.
+plushies-batch-7 = TODO: Replace with your Batch line 7.
+plushies-batch-8 = TODO: Replace with your Batch line 8.

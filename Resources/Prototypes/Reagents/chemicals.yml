@@ -96,6 +96,22 @@
             Poison: -1
       - !type:ChemCleanBloodstream
         cleanseRate: 3
+      - !type:GenericStatusEffect
+        key: KetamineSlurredSpeech
+        type: Remove
+        time: 1800
+      - !type:GenericStatusEffect
+        key: KetamineSedation
+        type: Remove
+        time: 1800
+      - !type:GenericStatusEffect
+        key: Drunk
+        type: Remove
+        time: 1800
+      - !type:GenericStatusEffect
+        key: SlurredSpeech
+        type: Remove
+        time: 1800
 
 - type: reagent
   id: Ash

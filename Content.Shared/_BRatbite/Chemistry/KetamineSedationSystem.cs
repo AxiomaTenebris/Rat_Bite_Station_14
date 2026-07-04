@@ -25,6 +25,10 @@ public sealed class KetamineSedationSystem : EntitySystem
 
     private bool HasActiveKetamine(EntityUid uid)
     {
+        var charcoalAmount = _solutions.GetTotalPrototypeQuantity(uid, "Charcoal").Float();
+        if (charcoalAmount >= 10f)
+            return false;
+
         if (HasComp<KetamineSedationComponent>(uid))
             return true;
 
@@ -34,6 +38,17 @@ public sealed class KetamineSedationSystem : EntitySystem
     private void OnGetDoAfterDelayMultiplier(Entity<KetamineSedationComponent> ent, ref GetDoAfterDelayMultiplierEvent args)
     {
         args.Multiplier *= ent.Comp.DoAfterDelayMultiplier;
+
+        var charcoalAmount = _solutions.GetTotalPrototypeQuantity(ent.Owner, "Charcoal").Float();
+        if (charcoalAmount >= 10f)
+            return;
+
+        var ketamineAmount = _solutions.GetTotalPrototypeQuantity(ent.Owner, "Ketamine").Float();
+        if (ketamineAmount <= 0.01f)
+            return;
+
+        // 1u ketamine => 1 minute scaling factor, capped at 15x.
+        args.Multiplier *= MathF.Min(ketamineAmount, 15f);
     }
 
     private void OnUncuffAttempt(ref UncuffAttemptEvent args)
@@ -111,4 +126,5 @@ public sealed class KetamineSedationSystem : EntitySystem
 
         args.Cancel();
     }
+
 }
