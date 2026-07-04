@@ -171,14 +171,21 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
                 : "Prisoner";
         }
 
-        var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
-
         _playTimeTrackings.PlayerRolesChanged(player);
 
         EntityCoordinates? spawnLoc = null;
         EntityUid? mobMaybe = null;
 
         spawnLoc = GetSpawnLocation(jobId);
+
+        if (inpatient && jobId == "SanitariumPatient" && spawnLoc == null)
+        {
+            // If no sanitarium spawnpoint exists, use Prisoner spawn routing instead of station fallback.
+            jobId = "Prisoner";
+            spawnLoc = GetSpawnLocation(jobId);
+        }
+
+        var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
 
         if (spawnLoc != null)
         {
@@ -187,12 +194,6 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
             jobId,
                 character,
                 station);
-            //Inpatients should spawn with a comfy straightjacket
-            if(inpatient){
-                var cuffs = _ent.SpawnEntity("ClothingOuterStraightjacket", Transform(mobMaybe.Value).Coordinates);
-                var comp = EnsureComp<CuffableComponent>(mobMaybe.Value);
-                _cuffableSystem.TryAddNewCuffs(mobMaybe.Value, mobMaybe.Value, cuffs, comp);
-            }
         }
         else
         {
@@ -201,6 +202,14 @@ public sealed class PermaBrigSystem : GameRuleSystem<PermaBrigComponent>
 
         DebugTools.AssertNotNull(mobMaybe);
         var mob = mobMaybe!.Value;
+
+        // Inpatients should always receive a straightjacket, regardless of spawn path.
+        if (inpatient)
+        {
+            var cuffs = _ent.SpawnEntity("ClothingOuterStraightjacket", Transform(mob).Coordinates);
+            var comp = EnsureComp<CuffableComponent>(mob);
+            _cuffableSystem.TryAddNewCuffs(mob, mob, cuffs, comp);
+        }
 
         var brigTime = _permaBrigManager.GetBrigTime(player.UserId);
         var expireTime = TimeSpan.FromMinutes(brigTime) + Timing.CurTime;
