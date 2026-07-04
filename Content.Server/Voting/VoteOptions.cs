@@ -66,6 +66,9 @@ namespace Content.Server.Voting
         /// </summary>
         public NetEntity? TargetEntity = null;
 
+        // Ratbite: wheter or not to allow multiple votes
+        public bool AllowMultiple = true;
+
         /// <summary>
         ///     Sets <see cref="InitiatorPlayer"/> and <see cref="InitiatorText"/>
         ///     by setting the latter to the player's name.
