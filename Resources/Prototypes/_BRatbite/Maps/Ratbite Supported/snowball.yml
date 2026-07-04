@@ -57,6 +57,7 @@
             SecurityCadet: [ 4, 4 ] #intern, not counted
             Lawyer: [ 1, 1 ]
             RedsightOverseer: [ 1, 1 ] #Ratbite
+            Brigmedic: [ 1, 1 ] # i forgor - CR - Ratbite
             #supply (6-8)
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 5 ]
