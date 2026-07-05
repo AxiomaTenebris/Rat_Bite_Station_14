@@ -7,12 +7,12 @@
   components:
   - type: LanguageKnowledge
     speaks:
-    - GalacticCommon
-    - Machine
+    - TauCetiBasic
+    - RobotTalk
     - Grumbakul
     understands:
-    - GalacticCommon
-    - Machine
+    - TauCetiBasic
+    - RobotTalk
     - Grumbakul
   - type: MobThresholds
     thresholds:
@@ -57,6 +57,12 @@
     - Hair
   - type: Inventory
     templateId: protogen
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -73,6 +79,12 @@
     species: ProtoDwarf
   - type: Inventory
     templateId: protogen
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
     femaleDisplacements:
       jumpsuit:
         sizeMaps:

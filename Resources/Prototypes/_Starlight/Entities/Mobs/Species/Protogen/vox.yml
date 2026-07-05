@@ -6,12 +6,12 @@
   components:
   - type: LanguageKnowledge
     speaks:
-    - GalacticCommon
-    - Machine
+    - TauCetiBasic
+    - RobotTalk
     - VoxPidgin
     understands:
-    - GalacticCommon
-    - Machine
+    - TauCetiBasic
+    - RobotTalk
     - VoxPidgin
   - type: Absorbable
   - type: Icon

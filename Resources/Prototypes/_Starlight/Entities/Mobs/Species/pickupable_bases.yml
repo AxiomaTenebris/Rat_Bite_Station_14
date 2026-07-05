@@ -3,12 +3,6 @@
   id: BaseSpeciesPickupable
   abstract: true
   components:
-  - type: Item
-    size: Huge
-    allowDirectHandPickup: false
-    shape:
-    - 0, 0, 6, 4
-  - type: MultiHandedItem
   - type: CanEscapeInventory
     baseResistTime: 5
 
@@ -17,12 +11,6 @@
   id: BaseSpeciesPickupableLarge
   abstract: true
   components:
-  - type: Item
-    size: Huge
-    allowDirectHandPickup: false
-    shape:
-    - 0, 0, 10, 9
-  - type: MultiHandedItem
   - type: CanEscapeInventory
     baseResistTime: 2
 
@@ -31,12 +19,6 @@
   id: BaseSpeciesPickupableHuge
   abstract: true
   components:
-  - type: Item
-    size: Huge
-    allowDirectHandPickup: false
-    shape:
-    - 0, 0, 12, 10
-  - type: MultiHandedItem
   - type: CanEscapeInventory
     baseResistTime: 1.5
 

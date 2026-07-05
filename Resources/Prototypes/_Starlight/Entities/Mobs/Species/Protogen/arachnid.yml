@@ -7,12 +7,12 @@
   components:
   - type: LanguageKnowledge
     speaks:
-    - GalacticCommon
-    - Machine
+    - TauCetiBasic
+    - RobotTalk
     - Chittin
     understands:
-    - GalacticCommon
-    - Machine
+    - TauCetiBasic
+    - RobotTalk
     - Chittin
   - type: IgnoreSpiderWeb
   - type: Absorbable

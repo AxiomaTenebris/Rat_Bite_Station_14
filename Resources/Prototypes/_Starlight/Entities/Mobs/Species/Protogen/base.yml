@@ -6,11 +6,11 @@
   components:
   - type: LanguageKnowledge
     speaks:
-    - GalacticCommon
-    - Machine
+    - TauCetiBasic
+    - RobotTalk
     understands:
-    - GalacticCommon
-    - Machine
+    - TauCetiBasic
+    - RobotTalk
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -153,14 +153,14 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _FarHorizons/Mobs/Species/Proto-Vulp/displacement.rsi
-            state: jumpsuit
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _FarHorizons/Mobs/Species/Proto-Vulp/displacement.rsi
-            state: jumpsuit
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
   - type: Barotrauma
     damage:
       types:
@@ -193,11 +193,11 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _FarHorizons/Mobs/Species/Proto-Vulp/displacement.rsi
-            state: jumpsuit
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _FarHorizons/Mobs/Species/Proto-Vulp/displacement.rsi
-            state: jumpsuit
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

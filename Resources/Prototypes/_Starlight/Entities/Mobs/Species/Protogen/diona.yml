@@ -7,12 +7,12 @@
   components:
   - type: LanguageKnowledge
     speaks:
-    - GalacticCommon
-    - Machine
+    - TauCetiBasic
+    - RobotTalk
     - Sylvan
     understands:
-    - GalacticCommon
-    - Machine
+    - TauCetiBasic
+    - RobotTalk
     - Sylvan
   - type: Vocal
     sounds:

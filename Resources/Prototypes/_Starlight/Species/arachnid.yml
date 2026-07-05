@@ -48,7 +48,7 @@
     Special:
       points: 4
       required: true
-      defaultMarkings: [ ProtoArachnidVisor, ProtogenLights, ProtoArachnidLEDFace ]
+      defaultMarkings: [ ProtoArachnidVisor, ProtoArachnidLEDFace ]
     Hair:
       points: 1
       required: false
@@ -84,4 +84,3 @@
     Undershirt:
       points: 1
       required: false
-      defaultMarkings: [ ProtogenMediumArmor ]

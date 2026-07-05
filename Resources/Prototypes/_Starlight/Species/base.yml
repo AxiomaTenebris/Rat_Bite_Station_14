@@ -42,7 +42,7 @@
     Special:
       points: 4
       required: true
-      defaultMarkings: [ ProtogenLights, ProtogenLEDFace, ProtogenVisor ]
+      defaultMarkings: [ ProtogenLEDFace, ProtogenVisor ]
     Hair:
       points: 1
       required: false
@@ -69,7 +69,6 @@
     Undershirt:
       points: 1
       required: false
-      defaultMarkings: [ ProtogenMediumArmor ]
     Underwear:
       points: 1
       required: false

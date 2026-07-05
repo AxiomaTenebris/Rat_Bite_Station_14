@@ -6,12 +6,12 @@
   components:
   - type: LanguageKnowledge
     speaks:
-    - GalacticCommon
-    - Machine
+    - TauCetiBasic
+    - RobotTalk
     - SolCommon
     understands:
-    - GalacticCommon
-    - Machine
+    - TauCetiBasic
+    - RobotTalk
     - SolCommon
   - type: Absorbable
   - type: Icon
@@ -40,6 +40,12 @@
     - Hair
   - type: Inventory
     templateId: protogen
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -55,6 +61,12 @@
     species: ProtoHuman
   - type: Inventory
     templateId: protogen
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
     femaleDisplacements:
       jumpsuit:
         sizeMaps:

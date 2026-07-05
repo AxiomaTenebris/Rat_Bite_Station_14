@@ -6,13 +6,13 @@
   components:
   - type: LanguageKnowledge
     speaks:
-    - GalacticCommon
-    - Machine
+    - TauCetiBasic
+    - RobotTalk
 #    - Trinary # Starlight, no Trinary
     - Canilunzt
     understands:
-    - GalacticCommon
-    - Machine
+    - TauCetiBasic
+    - RobotTalk
 #    - Trinary # Starlight, no Trinary
     - Canilunzt
     - Fox

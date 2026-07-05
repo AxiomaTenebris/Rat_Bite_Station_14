@@ -2,6 +2,9 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+trait-affected-by-holy-name = Affected by holy
+trait-affected-by-holy-desc = - Lord forgive for I have sinned! - No. *zap*
+
 trait-small-name = Small
 trait-small-desc = Hi, I'm Smolly!
 
