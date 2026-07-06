@@ -9,4 +9,6 @@ reagent-desc-lenturi = A common chemical that is effective at treating burn dama
 reagent-name-aiuri = aiuri
 reagent-desc-aiuri = A common but weak medicine used to heal burn injuries. Usually paired with other chemicals.
 reagent-name-caridine = caridine
-reagent-desc-caridine = Originally developed by mad gastroenterologists in the 22nd century who wanted a chemical that was capable of reducing inflammation in the stomach, relieve nausea, flush out harmful chemicals from the gut completely, and prevent dyspepsia and diarrhoea whilst also being pink. What came as a result was none of those things, they fucked up hard.
+reagent-desc-caridine = Originally developed by mad gastroenterologists in the 22nd century who wanted a chemical that is capable of reducing inflammation in the stomach, relieving nausea, flushing out harmful chemicals from the gut completely, and preventing dyspepsia and diarrhoea whilst also being pink. What came as a result was none of those things, they fucked up hard.
+reagent-name-lectrazine = lectrazine
+reagent-desc-lectrazine = Originally developed by Terragov chemists before their venture to Tau-Ceti as an easy way for astronauts to continue EVA maintenance tasks for a few more minutes without the need for a spare oxygen tank. It completely halts standard breathing and introduces the bloodstream to oxygen and saline without a need for lungs, overdosing causes nitrogen deficiency

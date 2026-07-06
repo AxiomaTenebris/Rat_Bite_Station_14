@@ -71,3 +71,20 @@
       amount: 1
   products:
     Caridine: 4
+
+- type: reaction
+  id: Lectrazine
+  reactants:
+    Oxygen:
+      amount: 4
+    Saline:
+      amount: 1
+    Iron:
+      amount: 1
+    Tirimol:
+      amount: 1
+    FluorosulfuricAcid:
+      amount: 1
+      catalyst: true
+  products:
+    Lectrazine: 7

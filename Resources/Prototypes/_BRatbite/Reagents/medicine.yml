@@ -202,7 +202,7 @@
         - !type:HealthChange
           damage:
             groups:
-              Brute: -1.2
+              Brute: -0.6
             types:
               Poison: -0.1
         - !type:ChemVomit
@@ -216,3 +216,73 @@
             min: 50
           probability: 0.02
         - !type:Drunk
+
+- type: reagent
+  id: Lectrazine
+  name: reagent-name-lectrazine
+  group: Medicine
+  desc: reagent-desc-lectrazine
+  physicalDesc: reagent-physical-desc-shocking
+  flavor: medicine
+  color: "#b36f9d"
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:HealthChange
+          conditions:
+          - !type:OrganType
+            type: Human
+          damage:
+            groups:
+              Airloss: -8 # matches description better than just Bloodloss
+        - !type:HealthChange
+          conditions:
+          - !type:OrganType
+            type: Human
+            shouldHave: false
+          - !type:OrganType
+            type: Yowie
+            shouldHave: false
+          damage:
+            types:
+              Poison: 2
+        - !type:HealthChange # yeah i know this is goida code, dont care
+          conditions:
+          - !type:OrganType
+            type: Vox
+          damage:
+            types:
+              Asphyxiation: 4
+        - !type:HealthChange
+          conditions:
+          - !type:OrganType
+            type: Slime
+          damage:
+            types:
+              Asphyxiation: 4
+        - !type:HealthChange
+          conditions:
+          - !type:OrganType
+            type: Resomi
+          damage:
+            types:
+              Asphyxiation: 4
+        - !type:HealthChange
+          conditions:
+          - !type:ReagentThreshold
+            min: 35
+          damage:
+            types:
+              Cellular: 0.5
+              Blunt: 0.1
+              Poison: 0.5
+        - !type:ModifyStatusEffect
+          effectProto: StatusEffectDrowsiness
+          time: 1.5
+          type: Add
+          refresh: false
+        - !type:AdjustBoneDamage
+          conditions:
+          - !type:ReagentThreshold
+            min: 35
+          amount: 1 # this displays wrong in guidebook AND in medtek AND in surgery UI, blame shitmed, too lazy to fix
