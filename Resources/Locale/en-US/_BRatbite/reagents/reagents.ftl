@@ -20,3 +20,5 @@ reagent-name-granitbitulari = granitbitulari
 reagent-desc-granitbitulari = A weaker yet more stable alternative to salicylic acid that works on the dead, commonly used with other chemicals.
 reagent-name-revivopine = revivopine
 reagent-desc-revivopine = A weaker yet more stable alternative to oxandrolone that works on the dead, commonly used with other chemicals.
+reagent-name-pumpup = pump-up
+reagent-desc-pumpup = A stimulant engineered by the United Tider's Association during the second tider war to combat the rising 'meta' of stun stun prods on the dwarf planet and phoron drilling outpost nicknamed 'Salt' after its unnaturally high amount of limestone on the surface.
