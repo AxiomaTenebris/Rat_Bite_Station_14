@@ -169,4 +169,21 @@
           conditions:
           - !type:ReagentThreshold
             min: 20
-        
+
+- type: reagent
+  id: Aiuri
+  name: reagent-name-aiuri
+  group: Medicine
+  desc: reagent-desc-aiuri
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: medicine
+  color: "#a69ff4"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+        - !type:HealthChange
+          damage:
+            groups:
+              Burn: -1
+              

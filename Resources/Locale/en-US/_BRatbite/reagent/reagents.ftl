@@ -6,3 +6,5 @@ reagent-name-libital = libital
 reagent-desc-libital = A common but weak medicine used to heal brute trauma. Usually paired with other chemicals.
 reagent-name-lenturi = lenturi
 reagent-desc-lenturi = A common chemical that is effective at treating burn damage. At high dosages, it uses the water in your body to accelerate healing.
+reagent-name-aiuri = aiuri
+reagent-desc-aiuri = A common but weak medicine used to heal burn injuries. Usually paired with other chemicals.
