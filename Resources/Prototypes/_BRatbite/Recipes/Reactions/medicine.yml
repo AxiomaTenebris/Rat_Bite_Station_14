@@ -88,3 +88,18 @@
       catalyst: true
   products:
     Lectrazine: 7
+
+- type: reaction
+  id: Chornexalinn
+  minTemp: 600
+  reactants:
+    Aluite:
+      amount: 5
+    Honk:
+      amount: 2
+    PentenicAcid:
+      amount: 2
+    Plasma:
+      amount: 1
+  products:
+    Chornexalinn: 5

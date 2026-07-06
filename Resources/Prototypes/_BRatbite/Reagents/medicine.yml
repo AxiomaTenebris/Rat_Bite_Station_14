@@ -286,3 +286,47 @@
           - !type:ReagentThreshold
             min: 35
           amount: 1 # this displays wrong in guidebook AND in medtek AND in surgery UI, blame shitmed, too lazy to fix
+
+- type: reagent
+  id: Chornexalinn
+  name: reagent-name-chornexalinn
+  group: Medicine
+  desc: reagent-desc-chornexalinn
+  physicalDesc: reagent-physical-desc-shiny
+  flavor: medicine
+  color: "#93ff7d"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      metabolismRate: 3
+      effects:
+        - !type:HealthChange
+          damage:
+            types:
+              Radiation: -40 # alternative for synthflesh yay!
+              Cellular: -6
+        - !type:HealthChange
+          conditions:
+          - !type:ReagentThreshold
+            min: 4
+          damage:
+            types:
+              Blunt: 43
+        - !type:AdjustReagent
+          amount: 3
+          reagent: Arithrazine # tbh arith just SEEMS like something that would be a T4 byproduct so it fits
+        - !type:AdjustReagent
+          amount: -25
+          reagent: Syriniver
+        - !type:AdjustReagent
+          amount: -50
+          reagent: Ebifin
+        - !type:AdjustReagent
+          amount: -25
+          reagent: ProcenylLazide
+        - !type:AdjustReagent
+          amount: -25
+          reagent: Aluite
+        - !type:AdjustReagent
+          amount: -50
+          reagent: Chornexalinn

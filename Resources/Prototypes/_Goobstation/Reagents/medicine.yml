@@ -270,6 +270,9 @@
       - !type:AdjustReagent
         amount: -25
         reagent: Aluite
+      - !type:AdjustReagent # Ratbite
+        amount: -50
+        reagent: Chornexalinn
 
 - type: reagent
   id: Musiver
@@ -354,6 +357,9 @@
       - !type:AdjustReagent
         amount: -25
         reagent: Aluite
+      - !type:AdjustReagent # Ratbite
+        amount: -50
+        reagent: Chornexalinn
 
 - type: reagent
   id: Tehifin
@@ -444,6 +450,9 @@
       - !type:AdjustReagent
         amount: -25
         reagent: Aluite
+      - !type:AdjustReagent # Ratbite
+        amount: -50
+        reagent: Chornexalinn
 
 - type: reagent
   id: Bozaide
