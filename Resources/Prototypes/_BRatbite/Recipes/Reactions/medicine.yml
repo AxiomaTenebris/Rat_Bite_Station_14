@@ -61,3 +61,13 @@
       amount: 1
   products:
     Aiuri: 2
+
+- type: reaction
+  id: Caridine
+  reactants:
+    Inaprovaline:
+      amount: 2
+    WeldingFuel:
+      amount: 1
+  products:
+    Caridine: 4

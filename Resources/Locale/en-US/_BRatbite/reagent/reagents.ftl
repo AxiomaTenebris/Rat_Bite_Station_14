@@ -8,3 +8,5 @@ reagent-name-lenturi = lenturi
 reagent-desc-lenturi = A common chemical that is effective at treating burn damage. At high dosages, it uses the water in your body to accelerate healing.
 reagent-name-aiuri = aiuri
 reagent-desc-aiuri = A common but weak medicine used to heal burn injuries. Usually paired with other chemicals.
+reagent-name-caridine = caridine
+reagent-desc-caridine = Originally developed by mad gastroenterologists in the 22nd century who wanted a chemical that was capable of reducing inflammation in the stomach, relieve nausea, flush out harmful chemicals from the gut completely, and prevent dyspepsia and diarrhoea whilst also being pink. What came as a result was none of those things, they fucked up hard.

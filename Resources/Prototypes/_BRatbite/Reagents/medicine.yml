@@ -186,4 +186,33 @@
           damage:
             groups:
               Burn: -1
-              
+
+- type: reagent
+  id: Caridine
+  name: reagent-name-caridine
+  group: Medicine
+  desc: reagent-desc-caridine
+  physicalDesc: reagent-physical-desc-thick
+  flavor: medicine
+  color: "#ff91af"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+        - !type:HealthChange
+          damage:
+            groups:
+              Brute: -1.2
+            types:
+              Poison: -0.1
+        - !type:ChemVomit
+          conditions:
+          - !type:ReagentThreshold
+            max: 50
+          probability: 0.5 # this shit gonna be used as better ipecac for sure but whatever.. (ipecac has 30%, min 4u)
+        - !type:ChemVomit
+          conditions:
+          - !type:ReagentThreshold
+            min: 50
+          probability: 0.02
+        - !type:Drunk
