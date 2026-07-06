@@ -16,3 +16,7 @@ reagent-name-chornexalinn = chornexalinn
 reagent-desc-chornexalinn = An advanced radiation medication developed to be used in autoinjectors during the early colonisation of tau-ceti, though quickly replaced with potassium iodide and arithrazine due to being too expensive to produce quickly. This drug reacts extremely violently with the blood, allowing it to quickly make its way around the body without the need for a heart to pump it and rapidly rejuvinates already existing cells and kills cancer cells.
 reagent-name-tepalal = tepalal
 reagent-desc-tepalal = A commonly used and externally applied medication. Toxic when in the bloodstream. Works on dead.
+reagent-name-granitbitulari = granitbitulari
+reagent-desc-granitbitulari = A weaker yet more stable alternative to salicylic acid that works on the dead, commonly used with other chemicals.
+reagent-name-revivopine = revivopine
+reagent-desc-revivopine = A weaker yet more stable alternative to oxandrolone that works on the dead, commonly used with other chemicals.

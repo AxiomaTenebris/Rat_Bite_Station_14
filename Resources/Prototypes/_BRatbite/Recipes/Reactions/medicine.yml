@@ -115,3 +115,27 @@
       amount: 1
   products:
     Tepalal: 3
+
+- type: reaction
+  id: Granitbitulari
+  reactants:
+    Libital:
+      amount: 2
+    SodiumPolyacrylate:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+  products:
+    Granitbitulari: 4
+
+- type: reaction
+  id: Revivopine
+  reactants:
+    Lenturi:
+      amount: 2
+    Sigynate:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+  products:
+    Revivopine: 4
