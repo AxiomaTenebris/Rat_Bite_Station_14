@@ -103,3 +103,30 @@
           min: 10
         time: 300
         type: Remove
+
+- type: reagent
+  id: Libital
+  name: reagent-name-libital
+  group: Medicine
+  desc: reagent-desc-libital
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: medicine
+  color: "#e8d199"
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:HealthChange
+          damage:
+            groups:
+              Brute: -2.5
+        - !type:HealthChange
+          conditions:
+          - !type:ReagentThreshold
+            min: 20
+          damage:
+            types:
+              Heat: 1
+        - !type:Jitter
+          conditions:
+          - !type:ReagentThreshold
+            min: 20
