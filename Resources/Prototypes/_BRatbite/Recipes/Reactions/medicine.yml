@@ -37,8 +37,8 @@
       amount: 1
   products:
     Water: 2
-    
- - type: reaction
+
+- type: reaction
   id: Libital
   reactants:
     WeldingFuel:
