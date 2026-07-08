@@ -77,7 +77,7 @@
           max: 9.99
         damage:
           types:
-            Cellular: 1
+            Cellular: 0.2
       - !type:GenericStatusEffect
         key: KetamineSedation
         component: KetamineSedation

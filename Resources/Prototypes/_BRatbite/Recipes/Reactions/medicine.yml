@@ -29,6 +29,16 @@
     Ketamine: 3
 
 - type: reaction
+  id: KetamineNeutralized
+  reactants:
+    Ketamine:
+      amount: 1
+    FoamingAgent:
+      amount: 1
+  products:
+    Water: 2
+    
+ - type: reaction
   id: Libital
   reactants:
     WeldingFuel:
@@ -139,3 +149,4 @@
       amount: 1
   products:
     Revivopine: 4
+
