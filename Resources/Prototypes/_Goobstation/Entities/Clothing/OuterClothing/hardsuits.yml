@@ -105,8 +105,8 @@
       coefficients:
         Blunt: 0.4
         Slash: 0.4
-        Piercing: 0.3
-        Heat: 0.3
+        Piercing: 0.4 #Ratbite
+        Heat: 0.6 #Ratbite
         Radiation: 0.5
         Caustic: 0.5
   - type: ClothingSpeedModifier
