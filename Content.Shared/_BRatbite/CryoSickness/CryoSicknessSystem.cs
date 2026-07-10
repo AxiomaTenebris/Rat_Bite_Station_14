@@ -33,7 +33,6 @@ public abstract class SharedCryoSicknessSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<CryoSicknessComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<CryoSicknessComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<CryoSicknessComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<CryoSicknessComponent, DamageModifyEvent>(OnDamageModifyEvent);
         SubscribeLocalEvent<CryoSicknessComponent, DamageChangedEvent>(OnDamageChange);
@@ -70,11 +69,6 @@ public abstract class SharedCryoSicknessSystem : EntitySystem
         EnsureComp<PacifiedComponent>(ent);
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.Action);
         _tagSystem.AddTag(ent, _cryoSicknessTag);
-    }
-
-    private void OnStartup(Entity<CryoSicknessComponent> ent, ref ComponentStartup args)
-    {
-        EnsureCryoInitialized(ent);
     }
 
     private void OnMapInit(Entity<CryoSicknessComponent> ent, ref MapInitEvent args)
