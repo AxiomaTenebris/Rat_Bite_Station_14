@@ -1,0 +1,1 @@
+ui-options-pointer-scale=Pointer scale
