@@ -170,6 +170,7 @@
   minLimit: 0
   maxLimit: 3
   loadouts:
+  - PlushieCarmella
   - FlowerWreath
   - Hairflower
   - Headphones
