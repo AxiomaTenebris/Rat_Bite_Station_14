@@ -2,7 +2,7 @@
 - type: language
   id: Wawa # wawa # okay i dont know what good name for this or description so i just put wawa
   speech:
-    color: "#ffffff"
+    color: "#bfbfbf"
   obfuscation:
     !type:ReplacementObfuscation
     replacement:
