@@ -19,15 +19,3 @@
     sprite: _Omu/Clothing/Uniforms/Jumpsuit/blackblueshieldturtleneck.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Uniforms/Jumpsuit/blackblueshieldturtleneck.rsi
-
-- type: entity
-  parent: ClothingUniformSecurityTrooper
-  id: ClothingUniformBlackRedSecUniform
-  name: security officer uniform
-  description: A utility uniform worn by trained security officers.
-  components:
-  - type: Sprite
-    sprite: _Omu/Clothing/Uniforms/Jumpsuit/blackredsecurityuniform.rsi
-  - type: Clothing
-    sprite: _Omu/Clothing/Uniforms/Jumpsuit/blackredsecurityuniform.rsi
-
